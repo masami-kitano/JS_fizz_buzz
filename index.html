@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript Lesson2</title>
+  </head>
+  <body>
+    <h1>FizzBuzz問題</h1>
+    <form id="fizzbuzz" action="#">
+      <p>FizzNum：<input type="text" id="fizzNum" size="25" placeholder="整数値を入力してください"></p>
+      <p>BuzzNum：<input type="text" id="buzzNum" size="25" placeholder="整数値を入力してください"></p>
+      <p><input type="button" onclick="runFizzBuzz()" value="実行"></p>
+    </form>
+    <div>【出力】</div>
+    <div id="output"></div>
+    <script>
+      function runFizzBuzz() {
+        const parent = document.getElementById("output");
+
+        while(parent.firstChild) {
+          parent.removeChild(parent.firstChild);
+        };
+
+        const fizzNum = document.getElementById("fizzNum").value;
+        const buzzNum = document.getElementById("buzzNum").value;
+
+        if (Number.isInteger(Number(fizzNum)) && Number.isInteger(Number(buzzNum)) && fizzNum !== '' && buzzNum !== '') {
+          for (let i = 1; i < 100; i++) {
+            if (i % fizzNum === 0 && i % buzzNum === 0) {
+              const div = document.createElement("div");
+              const child = parent.appendChild(div);
+              child.innerText = `FizzBuzz ${i}`;
+            } else if (i % fizzNum === 0) {
+              const div = document.createElement("div");
+              const child = parent.appendChild(div);
+              child.innerText = `Fizz ${i}`;
+            } else if (i % buzzNum === 0) {
+              const div = document.createElement("div");
+              const child = parent.appendChild(div);
+              child.innerText = `Buzz ${i}`;
+            }
+          }
+        } else {
+          const div = document.createElement("div");
+          const child = parent.appendChild(div);
+          parent.innerText = "整数値を入力してください。";
+        }
+      }
+    </script>
+  </body>
+</html>

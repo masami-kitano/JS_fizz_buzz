@@ -29,17 +29,15 @@
 
         if (Number.isInteger(Number(fizzNum)) && Number.isInteger(Number(buzzNum)) && fizzNum !== '' && buzzNum !== '') {
           for (let i = 1; i < 100; i++) {
+            
+            let child = document.createElement("div");
+            child = parent.appendChild(child);
+
             if (i % fizzNum === 0 && i % buzzNum === 0) {
-              let child = document.createElement("div");
-              child = parent.appendChild(child);
               child.innerText = `FizzBuzz ${i}`;
             } else if (i % fizzNum === 0) {
-              let child = document.createElement("div");
-              child = parent.appendChild(child);
               child.innerText = `Fizz ${i}`;
             } else if (i % buzzNum === 0) {
-              let child = document.createElement("div");
-              child = parent.appendChild(child);
               child.innerText = `Buzz ${i}`;
             }
           }
